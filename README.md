@@ -11,3 +11,11 @@ If you begin noticing database instability, this might be fixed by restarting th
 ## Running the database locally
 
 Currrently, the database is expected to be running on `localhost:5432` with the database `parks`, username `parks`, and password `parksdev`.
+
+## Running with Maven
+
+    mvn spring-boot:run
+
+## Packaging the JAR
+
+    mvn package
