@@ -1,0 +1,135 @@
+databaseChangeLog:
+  - preConditions:
+    - runningAs:
+        username: parks
+  - changeSet:
+      id: 1
+      author: nick.mcclendon
+      changes:
+        - createTable:
+            tableName: category
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+  - changeSet:
+      id: 2
+      author: nick.mcclendon
+      changes:
+        - createTable:
+            tableName: status
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+  - changeSet:
+      id: 3
+      author: nick.mcclendon
+      changes:
+        - createTable:
+            tableName: park
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+  - changeSet:
+      id: 4
+      author: nick.mcclendon
+      changes:
+        - createTable:
+            tableName: employee
+            columns:
+              - column:
+                  name: username
+                  type: varchar(20)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(50)
+              - column:
+                  name: fname
+                  type: varchar(50)
+              - column:
+                  name: lname
+                  type: varchar(50)
+              - column:
+                  name: park_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_employee_park
+                    references: park(id) 
+  - changeSet:
+      id: 5
+      author: nick.mcclendon
+      changes:
+        - createTable:
+            tableName: ticket
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: category_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_ticket_category
+                    references: category(id)
+              - column:
+                  name: date_created
+                  type: datetime
+              - column:
+                  name: employee_username
+                  type: varchar(20)
+                  constraints:
+                    foreignKeyName: fk_ticket_employee
+                    references: employee(username)
+              - column:
+                  name: email
+                  type: varchar(50)
+              - column:
+                  name: status_id
+                  type: int
+                  constraints:
+                    foreignKeyName: fk_ticket_status
+                    references: status(id)
+              - column:
+                  name: park_id
+                  type: int
+                  constraints:
+                    foreignKeyName: fk_ticket_park
+                    references: park(id)
+              - column:
+                  name: employee_notes
+                  type: varchar(400)
+              - column:
+                  name: description
+                  type: varchar(400)
