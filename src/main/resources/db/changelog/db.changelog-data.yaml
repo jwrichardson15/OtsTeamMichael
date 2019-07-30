@@ -430,3 +430,31 @@ databaseChangeLog:
               - column:
                   name: name
                   value: Campsite needs cleanup
+  - changeSet:
+      id: data_dummyTickets
+      author: jacob.richardson
+      changes:
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: email
+                  value: asdlfkjsa@gmail.com
+              - column:
+                  name: park_id
+                  value: 3
+              - column:
+                  name: category_id
+                  value: 1
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: email
+                  value: olijo@yahoo.com
+              - column:
+                  name: park_id
+                  value: 2
+              - column:
+                  name: category_id
+                  value: 3

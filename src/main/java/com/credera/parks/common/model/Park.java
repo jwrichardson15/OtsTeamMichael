@@ -14,7 +14,7 @@ public class Park implements Serializable {
     @Id
     @GeneratedValue(generator="id", strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "park_name")
+    @Column(name = "name")
     private String parkName;
 
 }
