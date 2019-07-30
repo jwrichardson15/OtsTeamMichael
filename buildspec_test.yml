@@ -1,0 +1,22 @@
+---
+version: 0.2
+
+env:
+  variables:
+    SPRING_PROFILES_ACTIVE: "standalone"
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk8
+  build:
+    commands:
+      - mvn package
+artifacts:
+  files:
+    - './target/surefire-reports/*.xml'
+    - './target/site/jacoco/**/*'
+
+cache:
+  paths:
+  - '/root/.m2/**/*'
