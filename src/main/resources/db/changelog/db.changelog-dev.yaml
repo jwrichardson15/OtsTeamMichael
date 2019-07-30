@@ -1,7 +1,4 @@
 databaseChangeLog:
-  - preConditions:
-    - runningAs:
-        username: parks
   - changeSet:
       id: 1
       author: nick.mcclendon
