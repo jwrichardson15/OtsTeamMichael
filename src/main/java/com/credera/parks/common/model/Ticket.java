@@ -1,5 +1,6 @@
 package com.credera.parks.common.model;
 
+import com.credera.parks.common.dto.TicketDTO;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -44,5 +45,16 @@ public class Ticket implements Serializable {
     private String employeeNotes;
     @Column
     private String description;
+
+    public Ticket(TicketDTO ticketDTO) {
+        this.id = ticketDTO.getId();
+        this.categoryId = ticketDTO.getCategoryId();
+        this.dateCreated = ticketDTO.getDateCreated();
+        this.employeeUsername = ticketDTO.getEmployeeUsername();
+        this.parkId = ticketDTO.getParkId();
+        this.email = ticketDTO.getEmail();
+        this.employeeNotes = ticketDTO.getEmployeeNotes();
+        this.description = ticketDTO.getDescription();
+    }
 
 }
