@@ -28,7 +28,7 @@ public class TicketDTO implements Serializable {
         this.categoryName = ticket.getCategory().getName();
         this.dateCreated = ticket.getDateCreated();
         this.employeeUsername = ticket.getEmployeeUsername();
-        this.email = ticket.getEmployeeUsername();
+        this.email = ticket.getEmail();
         this.parkId = ticket.getParkId();
         this.parkName = ticket.getPark().getParkName();
         this.employeeNotes = ticket.getEmployeeNotes();

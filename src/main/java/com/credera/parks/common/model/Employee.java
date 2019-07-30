@@ -12,10 +12,10 @@ import java.io.Serializable;
 @Getter @Setter @NoArgsConstructor
 public class Employee implements Serializable {
 
+//    @Id
+//    @GeneratedValue(generator="id", strategy = GenerationType.IDENTITY)
+//    private Long id;
     @Id
-    @GeneratedValue(generator="id", strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column
     private String username;
     @Column(name = "fname")
     private String fName;

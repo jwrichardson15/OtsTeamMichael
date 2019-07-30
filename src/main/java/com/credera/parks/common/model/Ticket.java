@@ -27,10 +27,10 @@ public class Ticket implements Serializable {
     @CreationTimestamp
     private LocalDateTime dateCreated;
 
-    @Column(name="username")
+    @Column(name="employee_username")
     private String employeeUsername;
     @ManyToOne(targetEntity = Employee.class)
-    @JoinColumn(name="username", updatable = false, insertable = false)
+    @JoinColumn(name="employee_username", updatable = false, insertable = false)
     private Employee employee;
 
     private String email;
