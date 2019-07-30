@@ -27,7 +27,7 @@ public class Employee implements Serializable {
     private Long park_id;
 
     @ManyToOne(targetEntity = Park.class)
-    @JoinColumn(name="park_id")
+    @JoinColumn(name="park_id", updatable = false, insertable = false)
     private Park park;
 
 }

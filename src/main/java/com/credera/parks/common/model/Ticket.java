@@ -22,7 +22,9 @@ public class Ticket implements Serializable {
     @CreationTimestamp
     private LocalDateTime dateCreated;
     //Edited call to table to reference username instead of name - Jacob
-    @Column(name="employee_username")
+    @Column(name="" +
+            "" +
+            "username")
     private String employeeUsername;
     // TODO: Add Employee object after creating
     private String email;
