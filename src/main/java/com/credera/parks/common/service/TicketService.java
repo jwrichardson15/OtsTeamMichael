@@ -28,7 +28,9 @@ public class TicketService {
     public Ticket updateTicket(Ticket updateTicket, Long id) {
         Ticket ticket = ticketRepository.findById(id).orElseThrow(NotFoundException::ticketNotFound);
         updateTicket.setCategory(categoryRepository.findById(updateTicket.getCategoryId()).orElseThrow(NotFoundException::categoryNotFound));
-        updateTicket.setEmployee(employeeRepository.findById(updateTicket.getEmployeeUsername()).orElseThrow(NotFoundException::employeeNotFound));
+        if (updateTicket.getEmployeeUsername() != null) {
+            updateTicket.setEmployee(employeeRepository.findById(updateTicket.getEmployeeUsername()).orElseThrow(NotFoundException::employeeNotFound));
+        }
         updateTicket.setPark(parkRepository.findById(updateTicket.getParkId()).orElseThrow(NotFoundException::parkNotFound));
         return ticketRepository.saveAndFlush(updateTicket);
     }
