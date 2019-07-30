@@ -15,25 +15,34 @@ public class Ticket implements Serializable {
     @Id
     @GeneratedValue(generator="id", strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "category_id")
     private Long categoryId;
-    // TODO: Add Category object after creating
+    @ManyToOne(targetEntity = Category.class)
+    @JoinColumn(name="category_id", updatable = false, insertable = false)
+    private Category category;
+
     @Column(name="date_created")
     @CreationTimestamp
     private LocalDateTime dateCreated;
-    //Edited call to table to reference username instead of name - Jacob
-    @Column(name="" +
-            "" +
-            "username")
+
+    @Column(name="username")
     private String employeeUsername;
-    // TODO: Add Employee object after creating
+    @ManyToOne(targetEntity = Employee.class)
+    @JoinColumn(name="username", updatable = false, insertable = false)
+    private Employee employee;
+
     private String email;
+
     @Column(name = "park_id")
     private Long parkId;
-    // TODO: Add Park object after creating
+    @ManyToOne(targetEntity = Park.class)
+    @JoinColumn(name="park_id", updatable = false, insertable = false)
+    private Park park;
 
     @Column(name="employee_notes")
     private String employeeNotes;
+    @Column
     private String description;
 
 }
