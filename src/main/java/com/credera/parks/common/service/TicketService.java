@@ -8,6 +8,9 @@ import com.credera.parks.common.repository.TicketRepository;
 import com.credera.parks.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+
 @Service
 public class TicketService {
     private final TicketRepository ticketRepository;
@@ -32,6 +35,15 @@ public class TicketService {
             updateTicket.setEmployee(employeeRepository.findById(updateTicket.getEmployeeUsername()).orElseThrow(NotFoundException::employeeNotFound));
         }
         updateTicket.setPark(parkRepository.findById(updateTicket.getParkId()).orElseThrow(NotFoundException::parkNotFound));
+        updateTicket.setId(id);
+        updateTicket.setDateCreated(ticket.getDateCreated());
         return ticketRepository.saveAndFlush(updateTicket);
     }
+
+    public List<Ticket> getAllTickets(){
+        return ticketRepository.findAll();
+    }
+
+    public List<Ticket> getAllParkTickets(Long parkId){ return ticketRepository.findByPark_id(parkId); }
+
 }
