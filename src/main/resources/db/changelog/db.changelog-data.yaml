@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: data_parks
+      author: nick.mcclendon
+      changes:
+        - insert:
+            tableName: park
+            columns:
+              - column:
+                  name: name
+                  value: Acadia
+        - insert:
+            tableName: park
+            columns:
+              - column:
+                  name: name
+                  value: Badlands
+        - insert:
+            tableName: park
+            columns:
+              - column:
+                  name: name
+                  value: Carlsbad Caverns
+        - insert:
+            tableName: park
+            columns:
+              - column:
+                  name: name
+                  value: Death Valley
+        - insert:
+            tableName: park
+            columns:
+              - column:
+                  name: name
+                  value: Gateway Arch
+        - insert:
+            tableName: park
+            columns:
+              - column:
+                  name: name
+                  value: Haleakala
+        - insert:
+            tableName: park
+            columns:
+              - column:
+                  name: name
+                  value: Katmai
+        - insert:
+            tableName: park
+            columns:
+              - column:
+                  name: name
+                  value: Lake Clark
+        - insert:
+            tableName: park
+            columns:
+              - column:
+                  name: name
+                  value: Mount Ranier
+        - insert:
+            tableName: park
+            columns:
+              - column:
+                  name: name
+                  value: Redwood

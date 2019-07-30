@@ -130,3 +130,5 @@ databaseChangeLog:
               - column:
                   name: description
                   type: varchar(400)
+  - include:
+      file: db/changelog/db.changelog-data.yaml
