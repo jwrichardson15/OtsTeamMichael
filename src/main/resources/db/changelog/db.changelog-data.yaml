@@ -389,3 +389,44 @@ databaseChangeLog:
               - column:
                   name: park_id
                   value: 10
+
+  - changeSet:
+      id: data_categories
+      author: amanda.bsaibes
+      changes:
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: Bathroom needs service
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: Potable water is empty
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: Trail is blocked by obstruction
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: Road needs service
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: Trail sign is broken/ unreadable
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: Campsite needs cleanup
