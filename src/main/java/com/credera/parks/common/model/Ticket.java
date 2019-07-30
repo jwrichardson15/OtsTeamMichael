@@ -21,8 +21,11 @@ public class Ticket implements Serializable {
     @Column(name="date_created")
     @CreationTimestamp
     private LocalDateTime dateCreated;
-    @Column(name="employee_name")
-    private String employeeName;
+    //Edited call to table to reference username instead of name - Jacob
+    @Column(name="" +
+            "" +
+            "username")
+    private String employeeUsername;
     // TODO: Add Employee object after creating
     private String email;
     @Column(name = "park_id")
