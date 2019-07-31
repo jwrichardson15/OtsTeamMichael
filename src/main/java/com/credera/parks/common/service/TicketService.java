@@ -1,10 +1,7 @@
 package com.credera.parks.common.service;
 
 import com.credera.parks.common.model.Ticket;
-import com.credera.parks.common.repository.CategoryRepository;
-import com.credera.parks.common.repository.EmployeeRepository;
-import com.credera.parks.common.repository.ParkRepository;
-import com.credera.parks.common.repository.TicketRepository;
+import com.credera.parks.common.repository.*;
 import com.credera.parks.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -17,15 +14,18 @@ public class TicketService {
     private final CategoryRepository categoryRepository;
     private final EmployeeRepository employeeRepository;
     private final ParkRepository parkRepository;
+    private final StatusRepository statusRepository;
 
     public TicketService(TicketRepository ticketRepository,
                          CategoryRepository categoryRepository,
                          EmployeeRepository employeeRepository,
-                         ParkRepository parkRepository) {
+                         ParkRepository parkRepository,
+                         StatusRepository statusRepository) {
         this.ticketRepository = ticketRepository;
         this.categoryRepository = categoryRepository;
         this.employeeRepository = employeeRepository;
         this.parkRepository = parkRepository;
+        this.statusRepository = statusRepository;
     }
 
     public Ticket updateTicket(Ticket updateTicket, Long id) {
@@ -35,6 +35,7 @@ public class TicketService {
             updateTicket.setEmployee(employeeRepository.findById(updateTicket.getEmployeeUsername()).orElseThrow(NotFoundException::employeeNotFound));
         }
         updateTicket.setPark(parkRepository.findById(updateTicket.getParkId()).orElseThrow(NotFoundException::parkNotFound));
+        updateTicket.setStatus(statusRepository.findById(updateTicket.getStatusId()).orElseThrow(NotFoundException::statusNotFound));
         updateTicket.setId(id);
         updateTicket.setDateCreated(ticket.getDateCreated());
         return ticketRepository.saveAndFlush(updateTicket);
@@ -45,5 +46,9 @@ public class TicketService {
     }
 
     public List<Ticket> getAllParkTickets(Long parkId){ return ticketRepository.findByPark_id(parkId); }
+
+    public List<Ticket> getEmployeeTickets(String employeeUsername) {
+        return ticketRepository.findByEmployee_username(employeeUsername);
+    }
 
 }

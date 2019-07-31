@@ -46,6 +46,12 @@ public class Ticket implements Serializable {
     @Column
     private String description;
 
+    @Column(name="status_id")
+    private Long statusId;
+    @ManyToOne(targetEntity = Status.class)
+    @JoinColumn(name="status_id", updatable = false, insertable = false)
+    private Status status;
+
     public Ticket(TicketDTO ticketDTO) {
         this.id = ticketDTO.getId();
         this.categoryId = ticketDTO.getCategoryId();
@@ -55,6 +61,7 @@ public class Ticket implements Serializable {
         this.email = ticketDTO.getEmail();
         this.employeeNotes = ticketDTO.getEmployeeNotes();
         this.description = ticketDTO.getDescription();
+        this.statusId = ticketDTO.getStatusId();
     }
 
 }

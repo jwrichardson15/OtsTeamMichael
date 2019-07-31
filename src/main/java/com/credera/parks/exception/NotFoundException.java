@@ -14,4 +14,5 @@ public class NotFoundException extends RuntimeException{
     public static NotFoundException categoryNotFound() {return new NotFoundException("Category Not Found");}
     public static NotFoundException employeeNotFound() {return new NotFoundException("Employee Not Found");}
     public static NotFoundException parkNotFound() {return new NotFoundException("Park Not Found");}
+    public static NotFoundException statusNotFound() {return new NotFoundException("Status Not Found");}
 }

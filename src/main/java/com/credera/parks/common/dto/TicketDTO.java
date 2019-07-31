@@ -21,6 +21,8 @@ public class TicketDTO implements Serializable {
     private String parkName;
     private String employeeNotes;
     private String description;
+    private Long statusId;
+    private String status;
 
     public TicketDTO(Ticket ticket) {
         this.id = ticket.getId();
@@ -33,6 +35,8 @@ public class TicketDTO implements Serializable {
         this.parkName = ticket.getPark().getParkName();
         this.employeeNotes = ticket.getEmployeeNotes();
         this.description = ticket.getDescription();
+        this.statusId = ticket.getStatusId();
+        this.status = ticket.getStatus().getName();
     }
 
 
