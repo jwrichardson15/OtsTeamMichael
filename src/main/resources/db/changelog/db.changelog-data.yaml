@@ -96,6 +96,9 @@ databaseChangeLog:
                   name: username
                   value: oChar9581
               - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
+              - column:
                   name: fname
                   value: Otto
               - column:
@@ -110,6 +113,9 @@ databaseChangeLog:
               - column:
                   name: username
                   value: dRagin2302
+              - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
               - column:
                   name: fname
                   value: Daniel
@@ -126,6 +132,9 @@ databaseChangeLog:
                   name: username
                   value: fPatter1290
               - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
+              - column:
                   name: fname
                   value: Francis
               - column:
@@ -140,6 +149,9 @@ databaseChangeLog:
               - column:
                   name: username
                   value: oLogan209
+              - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
               - column:
                   name: fname
                   value: Oliver
@@ -156,6 +168,9 @@ databaseChangeLog:
                   name: username
                   value: hLeon0393
               - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
+              - column:
                   name: fname
                   value: Homer
               - column:
@@ -170,6 +185,9 @@ databaseChangeLog:
               - column:
                   name: username
                   value: dRobb1238
+              - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
               - column:
                   name: fname
                   value: Daryl
@@ -186,6 +204,9 @@ databaseChangeLog:
                   name: username
                   value: Reaver232
               - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
+              - column:
                   name: fname
                   value: Rex
               - column:
@@ -200,6 +221,9 @@ databaseChangeLog:
               - column:
                   name: username
                   value: eVaug521
+              - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
               - column:
                   name: fname
                   value: Evan
@@ -216,6 +240,9 @@ databaseChangeLog:
                   name: username
                   value: roGi3923
               - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
+              - column:
                   name: fname
                   value: Rose
               - column:
@@ -230,6 +257,9 @@ databaseChangeLog:
               - column:
                   name: username
                   value: coFo7189
+              - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
               - column:
                   name: fname
                   value: Corey
@@ -246,6 +276,9 @@ databaseChangeLog:
                   name: username
                   value: ceJack0239
               - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
+              - column:
                   name: fname
                   value: Celia
               - column:
@@ -260,6 +293,9 @@ databaseChangeLog:
               - column:
                   name: username
                   value: Glee2991
+              - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
               - column:
                   name: fname
                   value: Glen
@@ -276,6 +312,9 @@ databaseChangeLog:
                   name: username
                   value: ebow9834
               - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
+              - column:
                   name: fname
                   value: Edith
               - column:
@@ -290,6 +329,9 @@ databaseChangeLog:
               - column:
                   name: username
                   value: cAll0299
+              - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
               - column:
                   name: fname
                   value: Caleb
@@ -306,6 +348,9 @@ databaseChangeLog:
                   name: username
                   value: diPal0098
               - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
+              - column:
                   name: fname
                   value: Diana
               - column:
@@ -320,6 +365,9 @@ databaseChangeLog:
               - column:
                   name: username
                   value: esWal0953
+              - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
               - column:
                   name: fname
                   value: Esther
@@ -336,6 +384,9 @@ databaseChangeLog:
                   name: username
                   value: oDix0022
               - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
+              - column:
                   name: fname
                   value: Ollie
               - column:
@@ -350,6 +401,9 @@ databaseChangeLog:
               - column:
                   name: username
                   value: stGar2332
+              - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
               - column:
                   name: fname
                   value: Steve
@@ -366,6 +420,9 @@ databaseChangeLog:
                   name: username
                   value: maWi5893
               - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
+              - column:
                   name: fname
                   value: Mandy
               - column:
@@ -380,6 +437,9 @@ databaseChangeLog:
               - column:
                   name: username
                   value: biBla9193
+              - column:
+                  name: password
+                  value: "$2a$10$Lixf5./c0bwov8gtqBsKzeyxLvraqOcaqnFyFwfSvzCDmItqGMhw2"
               - column:
                   name: fname
                   value: Bill
