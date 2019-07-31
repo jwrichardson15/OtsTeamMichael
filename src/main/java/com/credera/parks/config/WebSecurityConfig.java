@@ -1,6 +1,7 @@
 package com.credera.parks.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +22,9 @@ import com.credera.parks.security.util.JwtRequestFilter;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Value("${parks.authentication.enabled}")
+    private boolean authEnabled;
 
     @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
@@ -52,7 +56,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http.csrf().disable();
+
+        if (authEnabled) {
+            http
             .authorizeRequests()
             // Allow Swagger
             .antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**").permitAll()
@@ -65,7 +72,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             // Don't create a session, we're stateless through JWT magic crypto fairy dust
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        // Filter based on our jwt Filter
-        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+            // Filter based on our jwt Filter
+            http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+        } else {
+            http.authorizeRequests().anyRequest().permitAll();
+        }
+
     }
 }
