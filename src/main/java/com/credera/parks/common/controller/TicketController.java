@@ -18,15 +18,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/tickets")
+@RequestMapping("/api/tickets")
 public class TicketController {
 
-    private final TicketService ticketService;
 
     @Autowired
-    public TicketController(TicketService ticketService) {
-        this.ticketService = ticketService;
-    }
+    TicketService ticketService;
 
     @GetMapping("")
     @ApiOperation(value = "Get All Tickets test", nickname = "getAllTickets", notes = "returns all the tickets")

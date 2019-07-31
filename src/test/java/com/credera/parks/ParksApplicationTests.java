@@ -37,7 +37,7 @@ public class ParksApplicationTests {
 	@Test
 	public void getAllTicketsAPI() throws Exception {
 		mockMvc.perform( MockMvcRequestBuilders
-				.get("/tickets")
+				.get("/api/tickets")
 				.accept(MediaType.APPLICATION_JSON))
 				.andDo(print())
 				.andExpect(status().isOk())
@@ -47,7 +47,7 @@ public class ParksApplicationTests {
 	@Test
 	public void getCategoriesAPI() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders
-				.get("/categories")
+				.get("/api/categories")
 				.accept(MediaType.APPLICATION_JSON))
 				.andDo(print())
 				.andExpect(status().isOk())
@@ -59,7 +59,7 @@ public class ParksApplicationTests {
 	@Test
 	public void getParksAPI() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders
-				.get("/parks")
+				.get("/api/parks")
 				.accept(MediaType.APPLICATION_JSON))
 				.andDo(print())
 				.andExpect(status().isOk())
@@ -70,7 +70,7 @@ public class ParksApplicationTests {
 	@Test
 	public void createTicketsAPI() throws Exception {
 		mockMvc.perform( MockMvcRequestBuilders
-				.post("/tickets")
+				.post("/api/tickets")
 				.content(asJsonString(new TicketDTO(3, "test@email", 3,"description")))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
@@ -92,7 +92,7 @@ public class ParksApplicationTests {
 	@Test
 	public void updateTicketsAPI() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders
-				.put("/tickets/{id}", 3)
+				.put("/api/tickets/{id}", 3)
 				.content(asJsonString(new TicketDTO(3,2, "update@email.com", 2, "updateDescription")))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))

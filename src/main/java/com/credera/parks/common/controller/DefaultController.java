@@ -17,7 +17,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/api")
 public class DefaultController {
 
     @Autowired
