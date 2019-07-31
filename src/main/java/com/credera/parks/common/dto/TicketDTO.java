@@ -39,5 +39,27 @@ public class TicketDTO implements Serializable {
         this.status = ticket.getStatus().getName();
     }
 
+    public TicketDTO(int categoryId, String email, int parkId, String description) {
+        long lCategoryId = categoryId;
+        long lParkId = parkId;
+        this.categoryId = lCategoryId;
+        this.email = email;
+        this.parkId = lParkId;
+        this.description = description;
+    }
+
+    public TicketDTO(int id, int categoryId, String email, int parkId, String description) {
+        long lId = id;
+        long lCategoryId = categoryId;
+        long lParkId = parkId;
+
+        this.id = lId;
+        this.categoryId = lCategoryId;
+        this.email = email;
+        this.parkId = lParkId;
+        this.description = description;
+    }
+
+
 
 }

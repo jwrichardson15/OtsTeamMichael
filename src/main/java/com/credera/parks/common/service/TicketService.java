@@ -41,6 +41,12 @@ public class TicketService {
         return ticketRepository.saveAndFlush(updateTicket);
     }
 
+    public Ticket createTicket(Ticket createdTicket){
+        createdTicket.setCategory(categoryRepository.findById(createdTicket.getCategoryId()).orElseThrow(NotFoundException::categoryNotFound));
+        createdTicket.setPark(parkRepository.findById(createdTicket.getParkId()).orElseThrow(NotFoundException::parkNotFound));
+        return ticketRepository.save(createdTicket);
+    }
+
     public List<Ticket> getAllTickets(){
         return ticketRepository.findAll();
     }
