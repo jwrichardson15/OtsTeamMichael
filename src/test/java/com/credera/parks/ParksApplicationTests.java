@@ -92,8 +92,8 @@ public class ParksApplicationTests {
 	@Test
 	public void updateTicketsAPI() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders
-				.put("/api/tickets/{id}", 3)
-				.content(asJsonString(new TicketDTO(3,2, "update@email.com", 2, "updateDescription")))
+				.put("/api/tickets/{id}", 1)
+				.content(asJsonString(new TicketDTO(1,2, "update@email.com", 2, "updateDescription")))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
