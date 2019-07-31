@@ -506,6 +506,9 @@ databaseChangeLog:
               - column:
                   name: category_id
                   value: 1
+              - column:
+                  name: status_id
+                  value: 1
         - insert:
             tableName: ticket
             columns:
@@ -518,3 +521,6 @@ databaseChangeLog:
               - column:
                   name: category_id
                   value: 3
+              - column:
+                  name: status_id
+                  value: 1
