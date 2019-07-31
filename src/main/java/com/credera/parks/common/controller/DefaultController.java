@@ -46,8 +46,15 @@ public class DefaultController {
     @ApiOperation(value = "Get Parks", nickname = "getParks", notes = "returns parks")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK")})
-
     public ResponseEntity getAllParks(){
         return new ResponseEntity(defaultService.getAllParks(), HttpStatus.OK);
+    }
+
+    @GetMapping("/statuses")
+    @ApiOperation(value = "Get Statuses", nickname = "getStatuses", notes = "return statuses")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK")})
+    public ResponseEntity getAllStatuses(){
+        return new ResponseEntity(defaultService.getAllStatuses(), HttpStatus.OK);
     }
 }
