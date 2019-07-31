@@ -58,4 +58,15 @@ public class TicketController {
         Ticket returnTicket = ticketService.updateTicket(ticket, id);
         return ResponseEntity.ok(new TicketDTO(returnTicket));
     }
+
+    @PostMapping("")
+    @ApiOperation(value = "Create ticket", nickname = "createTicket", notes = "creates a new ticket")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = TicketDTO.class)
+    })
+    public ResponseEntity<TicketDTO> createTicket(@Valid @RequestBody TicketDTO request) {
+        Ticket ticket = new Ticket(request);
+        Ticket returnTicket = ticketService.createTicket(ticket);
+        return new ResponseEntity(new TicketDTO(returnTicket), HttpStatus.CREATED);
+    }
 }
