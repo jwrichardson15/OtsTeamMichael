@@ -509,6 +509,9 @@ databaseChangeLog:
               - column:
                   name: status_id
                   value: 1
+              - column:
+                  name: employee_username
+                  value: eVaug521
         - insert:
             tableName: ticket
             columns:
@@ -524,3 +527,6 @@ databaseChangeLog:
               - column:
                   name: status_id
                   value: 1
+              - column:
+                  name: employee_username
+                  value: diPal0098

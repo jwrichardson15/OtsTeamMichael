@@ -45,6 +45,17 @@ public class ParksApplicationTests {
 	}
 
 	@Test
+	public void getAllTicketsForParkAPI() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/api/tickets?park=2")
+				.accept(MediaType.APPLICATION_JSON))
+				.andDo(print())
+				.andExpect(status().isOk())
+				.andExpect(MockMvcResultMatchers.jsonPath("$[0].parkName").value("Badlands"))
+				.andExpect(MockMvcResultMatchers.jsonPath("$[0].id").exists());
+	}
+
+	@Test
 	public void getCategoriesAPI() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders
 				.get("/api/categories")
@@ -65,6 +76,17 @@ public class ParksApplicationTests {
 				.andExpect(status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(10)))
 				.andExpect(MockMvcResultMatchers.jsonPath("$[2].parkName").exists());
+	}
+
+	@Test
+	public void getStatusesAPI() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/api/statuses")
+				.accept(MediaType.APPLICATION_JSON))
+				.andDo(print())
+				.andExpect(status().isOk())
+				.andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(3)))
+				.andExpect(MockMvcResultMatchers.jsonPath("$[0].name").exists());
 	}
 
 	@Test
@@ -102,4 +124,14 @@ public class ParksApplicationTests {
 				.andExpect(MockMvcResultMatchers.jsonPath("$.description").value("updateDescription"));
 	}
 
+	@Test
+	public void getTicketsForLoggedInEmployeeAPI() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/api/employee/tickets?username=eVaug521")
+				.accept(MediaType.APPLICATION_JSON))
+				.andDo(print())
+				.andExpect(status().isOk())
+				.andExpect(MockMvcResultMatchers.jsonPath("$[0].id").exists())
+				.andExpect(MockMvcResultMatchers.jsonPath("$[0].employeeUsername").value("eVaug521"));
+	}
 }
