@@ -51,8 +51,8 @@ public class ParksApplicationTests {
 				.accept(MediaType.APPLICATION_JSON))
 				.andDo(print())
 				.andExpect(status().isOk())
-				.andExpect(MockMvcResultMatchers.jsonPath("$[*].parkName").value("Badlands"))
-				.andExpect(MockMvcResultMatchers.jsonPath("$[*].id").exists());
+				.andExpect(MockMvcResultMatchers.jsonPath("$[0].parkName").value("Badlands"))
+				.andExpect(MockMvcResultMatchers.jsonPath("$[0].id").exists());
 	}
 
 	@Test
@@ -127,11 +127,11 @@ public class ParksApplicationTests {
 	@Test
 	public void getTicketsForLoggedInEmployeeAPI() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders
-				.get("/api/employee/tickets?username=stGar2332")
+				.get("/api/employee/tickets?username=eVaug521")
 				.accept(MediaType.APPLICATION_JSON))
 				.andDo(print())
 				.andExpect(status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$[0].id").exists())
-				.andExpect(MockMvcResultMatchers.jsonPath("$[0].employeeUsername").value("stGar2332"));
+				.andExpect(MockMvcResultMatchers.jsonPath("$[0].employeeUsername").value("eVaug521"));
 	}
 }
