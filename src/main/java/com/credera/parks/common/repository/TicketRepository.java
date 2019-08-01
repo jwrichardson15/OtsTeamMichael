@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
-
-    List<Ticket> findByPark_id(Long park_id);
-    List<Ticket> findByEmployee_usernameOrderByIdAsc(String employeeUsername);
+    List<Ticket> findAllByOrderByIdDesc();
+    List<Ticket> findByPark_idOrderByIdDesc(Long park_id);
+    List<Ticket> findByEmployee_usernameOrderByIdDesc(String employeeUsername);
 }
