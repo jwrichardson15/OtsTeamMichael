@@ -3,6 +3,7 @@ package com.credera.parks.common.service;
 import com.credera.parks.common.model.Ticket;
 import com.credera.parks.common.repository.*;
 import com.credera.parks.exception.NotFoundException;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -55,7 +56,6 @@ public class TicketService {
     public List<Ticket> getAllParkTickets(Long parkId){ return ticketRepository.findByPark_id(parkId); }
 
     public List<Ticket> getEmployeeTickets(String employeeUsername) {
-        return ticketRepository.findByEmployee_username(employeeUsername);
+        return ticketRepository.findByEmployee_usernameOrderByIdAsc(employeeUsername);
     }
-
 }
