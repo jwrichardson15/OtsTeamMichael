@@ -50,12 +50,12 @@ public class TicketService {
     }
 
     public List<Ticket> getAllTickets(){
-        return ticketRepository.findAll();
+        return ticketRepository.findAllByOrderByIdDesc();
     }
 
-    public List<Ticket> getAllParkTickets(Long parkId){ return ticketRepository.findByPark_id(parkId); }
+    public List<Ticket> getAllParkTickets(Long parkId){ return ticketRepository.findByPark_idOrderByIdDesc(parkId); }
 
     public List<Ticket> getEmployeeTickets(String employeeUsername) {
-        return ticketRepository.findByEmployee_usernameOrderByIdAsc(employeeUsername);
+        return ticketRepository.findByEmployee_usernameOrderByIdDesc(employeeUsername);
     }
 }
