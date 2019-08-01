@@ -22,7 +22,7 @@ import com.credera.parks.common.dto.EmployeeDTO;
 import com.credera.parks.common.service.EmployeeService;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AuthenticationController {
 
     @Autowired
