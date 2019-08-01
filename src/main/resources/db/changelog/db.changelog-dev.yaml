@@ -66,6 +66,8 @@ databaseChangeLog:
               - column:
                   name: password
                   type: varchar(250)
+                  constraints:
+                    nullable: false
               - column:
                   name: fname
                   type: varchar(50)
@@ -116,12 +118,14 @@ databaseChangeLog:
                   name: status_id
                   type: int
                   constraints:
+                    nullable: false
                     foreignKeyName: fk_ticket_status
                     references: status(id)
               - column:
                   name: park_id
                   type: int
                   constraints:
+                    nullable: false
                     foreignKeyName: fk_ticket_park
                     references: park(id)
               - column:

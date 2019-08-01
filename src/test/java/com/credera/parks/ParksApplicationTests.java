@@ -71,7 +71,7 @@ public class ParksApplicationTests {
 	public void createTicketsAPI() throws Exception {
 		mockMvc.perform( MockMvcRequestBuilders
 				.post("/api/tickets")
-				.content(asJsonString(new TicketDTO(3, "test@email", 3,"description")))
+				.content(asJsonString(new TicketDTO(3L, "test@email", 3L,"description", 1L)))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isCreated())
@@ -93,7 +93,7 @@ public class ParksApplicationTests {
 	public void updateTicketsAPI() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders
 				.put("/api/tickets/{id}", 1)
-				.content(asJsonString(new TicketDTO(1,2, "update@email.com", 2, "updateDescription")))
+				.content(asJsonString(new TicketDTO(1L, 2L, "update@email.com", 2L, "updateDescription", 1L)))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())

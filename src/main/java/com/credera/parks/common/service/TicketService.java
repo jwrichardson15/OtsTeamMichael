@@ -45,7 +45,7 @@ public class TicketService {
     public Ticket createTicket(Ticket createdTicket){
         createdTicket.setCategory(categoryRepository.findById(createdTicket.getCategoryId()).orElseThrow(NotFoundException::categoryNotFound));
         createdTicket.setPark(parkRepository.findById(createdTicket.getParkId()).orElseThrow(NotFoundException::parkNotFound));
-        createdTicket.setStatus(statusRepository.findById(Long.valueOf(1)).orElseThrow(NotFoundException::statusNotFound));
+        createdTicket.setStatus(statusRepository.findById(createdTicket.getStatusId()).orElseThrow(NotFoundException::statusNotFound));
         return ticketRepository.save(createdTicket);
     }
 
