@@ -118,6 +118,7 @@ databaseChangeLog:
                   name: status_id
                   type: int
                   constraints:
+                    addDefaultValue: 1
                     nullable: false
                     foreignKeyName: fk_ticket_status
                     references: status(id)
