@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/tickets")
 public class TicketController {
 
-
     @Autowired
     TicketService ticketService;
 
