@@ -87,17 +87,28 @@
                   <version>1.18.8</version>
                   <scope>provided</scope>
                 </dependency>
-                <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
-                <dependency>
-                  <groupId>io.jsonwebtoken</groupId>
-                  <artifactId>jjwt</artifactId>
-                  <version>0.9.1</version>
-                </dependency>
                 <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
                 <dependency>
                   <groupId>com.amazonaws</groupId>
                   <artifactId>aws-java-sdk</artifactId>
                   <version>1.11.602</version>
+                </dependency>
+                <dependency>
+                  <groupId>io.jsonwebtoken</groupId>
+                  <artifactId>jjwt-api</artifactId>
+                  <version>0.10.5</version>
+                </dependency>
+                <dependency>
+                  <groupId>io.jsonwebtoken</groupId>
+                  <artifactId>jjwt-impl</artifactId>
+                  <version>0.10.5</version>
+                  <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                  <groupId>io.jsonwebtoken</groupId>
+                  <artifactId>jjwt-jackson</artifactId>
+                  <version>0.10.5</version>
+                  <scope>runtime</scope>
                 </dependency>
         </dependencies>
 
