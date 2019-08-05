@@ -18,13 +18,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/tickets")
+@RequestMapping("/api")
 public class TicketController {
 
     @Autowired
     TicketService ticketService;
 
-    @GetMapping("")
+    @GetMapping("/tickets")
     @ApiOperation(value = "Get All Tickets test", nickname = "getAllTickets", notes = "returns all the tickets")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK")
@@ -42,7 +42,7 @@ public class TicketController {
         return new ResponseEntity(ticketDTOList, HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/tickets/{id}")
     @ApiOperation(value = "Update ticket", nickname = "updateTicket", notes = "updates a ticket by it's id")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = TicketDTO.class),
@@ -55,7 +55,7 @@ public class TicketController {
         return ResponseEntity.ok(new TicketDTO(returnTicket));
     }
 
-    @PostMapping("")
+    @PostMapping("/public/tickets")
     @ApiOperation(value = "Create ticket", nickname = "createTicket", notes = "creates a new ticket")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = TicketDTO.class)

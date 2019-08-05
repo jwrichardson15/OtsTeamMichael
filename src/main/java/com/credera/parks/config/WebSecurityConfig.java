@@ -16,8 +16,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.credera.parks.security.util.JwtAuthenticationEntryPoint;
-import com.credera.parks.security.util.JwtRequestFilter;
+import com.credera.parks.security.JwtAuthenticationFilter;
+import com.credera.parks.security.JwtAuthorizationFilter;
+import com.credera.parks.security.ParksUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -27,31 +28,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private boolean authEnabled;
 
     @Autowired
-    private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
-
-    @Autowired
-    private UserDetailsService parksUserDetailsService;
-
-    @Autowired
-    private JwtRequestFilter jwtRequestFilter;
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        // configure AuthenticationManager so that it knows from where to load
-        // user for matching credentials
-        // Use BCryptPasswordEncoder
-        auth.userDetailsService(parksUserDetailsService).passwordEncoder(passwordEncoder());
-    }
+    private ParksUserDetailsService userDetailsService;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
     @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -60,22 +46,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         if (authEnabled) {
             http
-            .authorizeRequests()
-            // Allow Swagger
-            .antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**").permitAll()
-            // Allow login
-            .antMatchers("/auth/login").permitAll()
-            // Require authentication for everything else
-            .anyRequest().authenticated().and()
-            // Handle authentication with JWTs
-            .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
-            // Don't create a session, we're stateless through JWT magic crypto fairy dust
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-            // Filter based on our jwt Filter
-            http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+                .authorizeRequests()
+                // Allow Swagger
+                .antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**").permitAll()
+                .antMatchers("/api/public/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+                .addFilter(new JwtAuthorizationFilter(authenticationManager()))
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         } else {
-            http.authorizeRequests().anyRequest().permitAll();
+            http
+                .authorizeRequests()
+                .antMatchers("/api/employee/me").authenticated()
+                .anyRequest().permitAll()
+                .and()
+                .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+                .addFilter(new JwtAuthorizationFilter(authenticationManager()))
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         }
 
     }

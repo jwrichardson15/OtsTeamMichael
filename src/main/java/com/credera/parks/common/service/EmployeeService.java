@@ -18,7 +18,7 @@ public class EmployeeService {
     }
 
     public Employee getByUsername(String username) {
-        return employeeRepository.findByUsername(username).orElseThrow(NotFoundException::ticketNotFound);
+        return employeeRepository.findByUsername(username).orElseThrow(NotFoundException::employeeNotFound);
     }
 
 }

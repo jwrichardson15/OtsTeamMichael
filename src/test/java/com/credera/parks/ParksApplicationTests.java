@@ -2,6 +2,9 @@ package com.credera.parks;
 
 import com.credera.parks.common.dto.TicketDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.hamcrest.Matcher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,10 +14,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
@@ -58,7 +64,7 @@ public class ParksApplicationTests {
 	@Test
 	public void getCategoriesAPI() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders
-				.get("/api/categories")
+				.get("/api/public/categories")
 				.accept(MediaType.APPLICATION_JSON))
 				.andDo(print())
 				.andExpect(status().isOk())
@@ -70,7 +76,7 @@ public class ParksApplicationTests {
 	@Test
 	public void getParksAPI() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders
-				.get("/api/parks")
+				.get("/api/public/parks")
 				.accept(MediaType.APPLICATION_JSON))
 				.andDo(print())
 				.andExpect(status().isOk())
@@ -81,7 +87,7 @@ public class ParksApplicationTests {
 	@Test
 	public void getStatusesAPI() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders
-				.get("/api/statuses")
+				.get("/api/public/statuses")
 				.accept(MediaType.APPLICATION_JSON))
 				.andDo(print())
 				.andExpect(status().isOk())
@@ -92,7 +98,7 @@ public class ParksApplicationTests {
 	@Test
 	public void createTicketsAPI() throws Exception {
 		mockMvc.perform( MockMvcRequestBuilders
-				.post("/api/tickets")
+				.post("/api/public/tickets")
 				.content(asJsonString(new TicketDTO(3L, "test@email", 3L,"description", 1L)))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
@@ -101,6 +107,37 @@ public class ParksApplicationTests {
 				.andExpect(MockMvcResultMatchers.jsonPath("$.categoryName").exists())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.dateCreated").exists())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.parkName").exists());
+	}
+
+    	@Test
+	public void authenticationAPI() throws Exception {
+		mockMvc.perform( MockMvcRequestBuilders
+				.post("/api/authenticate")
+                                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+				.content(EntityUtils.toString(
+						new UrlEncodedFormEntity(Arrays.asList(
+								new BasicNameValuePair("username", "biBla9193"),
+								new BasicNameValuePair("password", "credera"))))))
+                .andExpect(status().isOk());
+	}
+
+        @Test
+	public void authorizationAPI() throws Exception {
+		MvcResult mvcResult = mockMvc.perform( MockMvcRequestBuilders
+				.post("/api/authenticate")
+                                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+				.content(EntityUtils.toString(
+						new UrlEncodedFormEntity(Arrays.asList(
+								new BasicNameValuePair("username", "biBla9193"),
+								new BasicNameValuePair("password", "credera"))))))
+				.andReturn();
+		String token = mvcResult.getResponse().getHeader("Authorization");
+		mockMvc.perform(MockMvcRequestBuilders
+					.get("/api/employee/me")
+					.accept(MediaType.APPLICATION_JSON)
+					.header("Authorization", token))
+					.andDo(print())
+					.andExpect(status().isOk());
 	}
 
 	public static String asJsonString(final Object obj) {

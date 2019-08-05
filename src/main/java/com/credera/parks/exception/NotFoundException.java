@@ -10,7 +10,7 @@ public class NotFoundException extends RuntimeException{
 
     public NotFoundException(String message) {super(message);}
 
-    public static NotFoundException ticketNotFound() {return new NotFoundException("Badge Not Found");}
+    public static NotFoundException ticketNotFound() {return new NotFoundException("Ticket Not Found");}
     public static NotFoundException categoryNotFound() {return new NotFoundException("Category Not Found");}
     public static NotFoundException employeeNotFound() {return new NotFoundException("Employee Not Found");}
     public static NotFoundException parkNotFound() {return new NotFoundException("Park Not Found");}
