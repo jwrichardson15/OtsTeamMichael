@@ -1,0 +1,8 @@
+{
+  "Template": {
+    "TemplateName": "CreateTicket",
+    "SubjectPart": "National Parks - Ticket Creation",
+    "HtmlPart": "<h1>Ticket Created!</h1><p>Thank you for letting us know! We'll have a team member take a look at it.</p><p><b>Category:</b> {{ categoryName }}</p><p><b>Park:</b> {{ parkName }}</p><p><b>Description:</b> {{ description }}</p>",
+    "TextPart": "Thank you for letting us know! We'll have a team member take a look at it."
+  }
+}

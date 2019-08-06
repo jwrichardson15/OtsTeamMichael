@@ -1,0 +1,8 @@
+{
+  "Template": {
+    "TemplateName": "CompleteTicket",
+    "SubjectPart": "National Parks - Ticket Completion",
+    "HtmlPart": "<h1>Ticket Complete!</h1><p>Your ticket has now been completed.</p><p><b>Category:</b> {{ categoryName }}</p><p><b>Park:</b> {{ parkName }}</p><p><b>Description:</b> {{ description }}</p>",
+    "TextPart": "Your ticket has now been completed."
+  }
+}
