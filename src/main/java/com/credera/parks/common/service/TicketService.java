@@ -48,7 +48,7 @@ public class TicketService {
         updateTicket.setId(id);
         updateTicket.setDateCreated(ticket.getDateCreated());
         if (emailEnabled && !ticket.getStatus().getName().equals("Completed") && updateTicket.getStatus().getName().equals("Completed")) {
-            emailUtil.send(false, updateTicket.getEmail());
+            emailUtil.send(false, updateTicket);
         }
         return ticketRepository.saveAndFlush(updateTicket);
     }
@@ -58,7 +58,7 @@ public class TicketService {
         createdTicket.setPark(parkRepository.findById(createdTicket.getParkId()).orElseThrow(NotFoundException::parkNotFound));
         createdTicket.setStatus(statusRepository.findById(createdTicket.getStatusId()).orElseThrow(NotFoundException::statusNotFound));
         if (emailEnabled) {
-            emailUtil.send(true, createdTicket.getEmail());
+            emailUtil.send(true, createdTicket);
         }
         return ticketRepository.save(createdTicket);
     }
