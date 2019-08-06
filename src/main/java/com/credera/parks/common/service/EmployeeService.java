@@ -21,4 +21,8 @@ public class EmployeeService {
         return employeeRepository.findByUsername(username).orElseThrow(NotFoundException::employeeNotFound);
     }
 
+    public List<Employee> getEmployees() {
+        return employeeRepository.findAllByOrderByUsername();
+    }
+
 }

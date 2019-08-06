@@ -33,6 +33,17 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    @GetMapping
+    @ApiOperation(value="Get all employees", nickname = "getEmployees", notes="gets the information of all the employees in the system")
+    @ApiResponses(value={
+            @ApiResponse(code = 200, message = "OK")
+    })
+    public ResponseEntity<List<EmployeeDTO>> getEmployees() {
+        List<Employee> employees = employeeService.getEmployees();
+        List<EmployeeDTO> employeesDTOs = employees.stream().map(EmployeeDTO::new).collect(Collectors.toList());
+        return ResponseEntity.ok(employeesDTOs);
+    }
+
     @GetMapping("/me")
     @ApiOperation(value = "Get the currently logged in employee", nickname = "getSelf", notes = "gets information about the currently logged in user")
     @ApiResponses(value = {
