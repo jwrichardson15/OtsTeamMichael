@@ -483,7 +483,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: name
-                  value: Trail sign is broken/ unreadable
+                  value: Trail sign is broken/unreadable
         - insert:
             tableName: category
             columns:
@@ -511,7 +511,7 @@ databaseChangeLog:
                   value: 1
               - column:
                   name: employee_username
-                  value: eVaug521
+                  value: hLeon0393
         - insert:
             tableName: ticket
             columns:
@@ -529,4 +529,148 @@ databaseChangeLog:
                   value: 1
               - column:
                   name: employee_username
-                  value: diPal0098
+                  value: oLogan209
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: email
+                  value: olijo@yahoo.com
+              - column:
+                  name: park_id
+                  value: 1
+              - column:
+                  name: category_id
+                  value: 5
+              - column:
+                  name: status_id
+                  value: 3
+              - column:
+                  name: employee_username
+                  value: dRagin2302
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: email
+                  value: olijo@yahoo.com
+              - column:
+                  name: park_id
+                  value: 1
+              - column:
+                  name: category_id
+                  value: 6
+              - column:
+                  name: status_id
+                  value: 2
+              - column:
+                  name: employee_username
+                  value: oChar9581
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: email
+                  value: olijo@yahoo.com
+              - column:
+                  name: park_id
+                  value: 4
+              - column:
+                  name: category_id
+                  value: 2
+              - column:
+                  name: status_id
+                  value: 1
+              - column:
+                  name: employee_username
+                  value: eVaug521
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: email
+                  value: olijo@yahoo.com
+              - column:
+                  name: park_id
+                  value: 5
+              - column:
+                  name: category_id
+                  value: 6
+              - column:
+                  name: status_id
+                  value: 3
+              - column:
+                  name: employee_username
+                  value: coFo7189
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: email
+                  value: olijo@yahoo.com
+              - column:
+                  name: park_id
+                  value: 6
+              - column:
+                  name: category_id
+                  value: 2
+              - column:
+                  name: status_id
+                  value: 3
+              - column:
+                  name: employee_username
+                  value: Glee2991
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: email
+                  value: olijo@yahoo.com
+              - column:
+                  name: park_id
+                  value: 7
+              - column:
+                  name: category_id
+                  value: 2
+              - column:
+                  name: status_id
+                  value: 3
+              - column:
+                  name: employee_username
+                  value: cAll0299
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: email
+                  value: olijo@yahoo.com
+              - column:
+                  name: park_id
+                  value: 8
+              - column:
+                  name: category_id
+                  value: 2
+              - column:
+                  name: status_id
+                  value: 3
+              - column:
+                  name: employee_username
+                  value: oDix0022
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: email
+                  value: olijo@yahoo.com
+              - column:
+                  name: park_id
+                  value: 1
+              - column:
+                  name: category_id
+                  value: 2
+              - column:
+                  name: status_id
+                  value: 3
+              - column:
+                  name: employee_username
+                  value: dRagin2302
