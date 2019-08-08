@@ -6,6 +6,7 @@ import com.credera.parks.common.service.TicketService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Authorization;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class TicketController {
     TicketService ticketService;
 
     @GetMapping("/tickets")
-    @ApiOperation(value = "Get All Tickets test", nickname = "getAllTickets", notes = "returns all the tickets")
+    @ApiOperation(value = "Get All Tickets test", nickname = "getAllTickets", notes = "returns all the tickets", authorizations = {@Authorization(value = "Bearer")})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK")
     })
@@ -43,7 +44,7 @@ public class TicketController {
     }
 
     @PutMapping("/tickets/{id}")
-    @ApiOperation(value = "Update ticket", nickname = "updateTicket", notes = "updates a ticket by it's id")
+    @ApiOperation(value = "Update ticket", nickname = "updateTicket", notes = "updates a ticket by it's id", authorizations = {@Authorization(value = "Bearer")})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = TicketDTO.class),
             @ApiResponse(code = 400, message = "Ticket ID is invalid"),
