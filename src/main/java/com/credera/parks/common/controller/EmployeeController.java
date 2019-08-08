@@ -9,6 +9,7 @@ import com.credera.parks.common.service.TicketService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,7 @@ public class EmployeeController {
     }
 
     @GetMapping
-    @ApiOperation(value="Get all employees", nickname = "getEmployees", notes="gets the information of all the employees in the system")
+    @ApiOperation(value="Get all employees", nickname = "getEmployees", notes="gets the information of all the employees in the system", authorizations = {@Authorization(value = "Bearer")})
     @ApiResponses(value={
             @ApiResponse(code = 200, message = "OK")
     })
@@ -45,7 +46,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/me")
-    @ApiOperation(value = "Get the currently logged in employee", nickname = "getSelf", notes = "gets information about the currently logged in user")
+    @ApiOperation(value = "Get the currently logged in employee", nickname = "getSelf", notes = "gets information about the currently logged in user", authorizations = {@Authorization(value = "Bearer")})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK")
     })
@@ -55,7 +56,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/tickets")
-    @ApiOperation(value = "Get all tickets for the logged in user", nickname = "getEmployeeTickets", notes = "gets all the tickets for the logged in user")
+    @ApiOperation(value = "Get all tickets for the logged in user", nickname = "getEmployeeTickets", notes = "gets all the tickets for the logged in user", authorizations = {@Authorization(value = "Bearer")})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = TicketDTO.class),
             @ApiResponse(code = 400, message = "Employee username is invalid"),

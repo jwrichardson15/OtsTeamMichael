@@ -7,7 +7,6 @@ import com.credera.parks.common.model.Status;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import io.swagger.annotations.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +27,7 @@ public class DefaultController {
     DefaultService defaultService;
 
     @GetMapping("/heartbeat")
-    @ApiOperation(value = "Heartbeat test", nickname = "getHeartbeat", notes = "Heartbeat check", authorizations = {@Authorization(value = "Bearer")})
+    @ApiOperation(value = "Heartbeat test", nickname = "getHeartbeat", notes = "Heartbeat check")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "OK")
     })
